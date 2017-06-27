@@ -1,6 +1,11 @@
 # vue-app
 
-> A Vue.js project
+> axiosを用いてAPIを取得するだけのプロジェクト
+
+## 概要
+axiosというVue.jsのAjax通信ライブラリを利用し、非同期でJSONデータを取得する。
+
+利用方法は下記の通り。
 
 ## Build Setup
 
