@@ -1,14 +1,15 @@
 <template>
   <div id="apiList-wrapper">
     <h2>APIを取得</h2>
-    <!--<button v-on:click="apiSort">TITLE昇順ボタン</button>-->
     <ul id="apiList">
       <li v-for="item in items">
         <ul>
-          <li>USERID : {{item.userId}}</li>
           <li>ID : {{item.id}}</li>
-          <li>TITLE : {{item.title}}</li>
-          <li>BODY : {{item.body}}</li>
+          <li>投稿日 : {{item.date}}</li>
+          <li>記事タイトル : <a :href="`${item.link}`" target="_blank">{{item.title.rendered}}</a></li>
+          <li>スラッグ : {{item.slug}}</li>
+          <li>本文 : {{item.excerpt.rendered}}</li>
+          <!--<li>{{item._embedded.wp:featuredmedia.[0].media_details.sizes.source_url}}</li>-->
         </ul>
       </li>
     </ul>
@@ -28,20 +29,15 @@ export default {
     }
   },
   created() {
-    axios.get('http://jsonplaceholder.typicode.com/posts')
+    // 最新の5件の記事を取得
+    axios.get('http://localhost:8888/wordpress/wp-json/wp/v2/posts?_embed&per_page=5')
     .then(response => {
       // JSON responses are automatically parsed.
       this.items = response.data
-
-      // this.items.push({
-      //   userId: 11,
-      //   id: 101,
-      //   title: 'これは手動で追加したタイトルだよ',
-      //   body: 'これは手動で追加したタイトルだよ'
-      // });
     })
     .catch(e => {
       this.errors.push(e)
+      console.log(this.errors)
     })
   }
 }
