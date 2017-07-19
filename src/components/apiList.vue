@@ -9,7 +9,11 @@
           <li>記事タイトル : <a :href="`${item.link}`" target="_blank">{{item.title.rendered}}</a></li>
           <li>スラッグ : {{item.slug}}</li>
           <li>本文 : {{item.excerpt.rendered}}</li>
-          <!--<li>{{item._embedded.wp:featuredmedia.[0].media_details.sizes.source_url}}</li>-->
+
+          <!-- <li>{{item['_embedded']['wp:featuredmedia'][0]['source_url']}}</li> -->
+          <!-- wp-json/wp/v2/mediaを取得すると下記が表示される -->
+          <!-- <li>{{item.source_url}}</li> -->
+          <!-- <li>{{item.media_details.sizes.full.source_url}}</li> -->
         </ul>
       </li>
     </ul>
@@ -30,10 +34,11 @@ export default {
   },
   created() {
     // 最新の5件の記事を取得
+    // axios.get('http://localhost:8888/wordpress/wp-json/wp/v2/media')
     axios.get('http://localhost:8888/wordpress/wp-json/wp/v2/posts?_embed&per_page=5')
     .then(response => {
       // JSON responses are automatically parsed.
-      this.items = response.data
+      this.items = response.data;
     })
     .catch(e => {
       this.errors.push(e)
