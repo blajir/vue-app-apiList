@@ -4,11 +4,11 @@
     <ul id="apiList">
       <li v-for="item in items">
         <ul>
-          <li><router-link :to="{name: 'content'}">ID : {{item.id}}</router-link></li>
+          <li><router-link :to="{name: 'content', params: { id: item.id }}">ID : {{item.id}}</router-link></li>
           <li>投稿日 : {{item.date}}</li>
           <li>記事タイトル : <a :href="`${item.link}`" target="_blank">{{item.title.rendered}}</a></li>
           <li>スラッグ : {{item.slug}}</li>
-          <li>本文 : {{item.excerpt.rendered}}</li>
+          <li v-html="item.excerpt.rendered"></li>
           <li v-if="item._embedded['wp:featuredmedia']">
             <img :src="`${item._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url}`">
           </li>

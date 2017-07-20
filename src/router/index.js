@@ -15,7 +15,7 @@ export default new Router({
       component: ApiList
     },
     {
-      path: '/content',
+      path: '/content/:id',
       name: 'content',
       component: Content
     }
