@@ -4,7 +4,7 @@
     <ul id="apiList">
       <li v-for="item in items">
         <ul>
-          <li>ID : {{item.id}}</li>
+          <li><router-link :to="{name: 'content'}">ID : {{item.id}}</router-link></li>
           <li>投稿日 : {{item.date}}</li>
           <li>記事タイトル : <a :href="`${item.link}`" target="_blank">{{item.title.rendered}}</a></li>
           <li>スラッグ : {{item.slug}}</li>

@@ -1,22 +1,22 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <!--<router-view></router-view>-->
     <test></test>
-    <apiList></apiList>
+    <router-view></router-view>
+    <!-- <apiList></apiList> -->
   </div>
 </template>
 
 <script>
 // test.vueコンポーネントを呼び出し
 import Test from './components/test.vue';
-import ApiList from './components/apiList.vue';
+// import ApiList from './components/apiList.vue';
 
 export default {
   name: 'app',
   components: {
     Test,
-    ApiList
+    // ApiList
   }
 }
 
