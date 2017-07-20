@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <test></test>
-    <router-view></router-view>
+    <test :hoge="hoge"></test>
+    <router-view :items="items"></router-view>
     <!-- <apiList></apiList> -->
   </div>
 </template>
@@ -10,14 +10,39 @@
 <script>
 // test.vueコンポーネントを呼び出し
 import Test from './components/test.vue';
+import ContentX from '@/components/Content';
+
 // import ApiList from './components/apiList.vue';
+// Ajaxをいい感じにやってくれるモジュール
+import axios from 'axios'
 
 export default {
   name: 'app',
   components: {
     Test,
-    // ApiList
-  }
+    ContentX,
+  },
+  data() {
+    return {
+      hoge: 'fooooooooooooooooooooo!',
+      dataTest: 'データ受け渡し成功!!!!',
+      items: [],
+      errors: [],
+    }
+  },
+  created() {
+    // 最新の5件の記事を取得
+    // axios.get('http://localhost:8888/wordpress/wp-json/wp/v2/media')
+    axios.get('http://localhost:8888/wordpress/wp-json/wp/v2/posts?_embed&per_page=5')
+    .then(response => {
+      // JSON responses are automatically parsed.
+      this.items = response.data;
+    })
+    .catch(e => {
+      this.errors.push(e)
+      console.log(this.errors)
+    })
+  },
 }
 
 </script>

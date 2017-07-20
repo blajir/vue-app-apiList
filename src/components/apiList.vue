@@ -28,24 +28,25 @@ import axios from 'axios'
 
 export default {
   name: 'apiList',
-  data: () => {
-    return {
-      items: [],
-      errors: [],
-    }
-  },
-  created() {
-    // 最新の5件の記事を取得
-    // axios.get('http://localhost:8888/wordpress/wp-json/wp/v2/media')
-    axios.get('http://localhost:8888/wordpress/wp-json/wp/v2/posts?_embed&per_page=5')
-    .then(response => {
-      // JSON responses are automatically parsed.
-      this.items = response.data;
-    })
-    .catch(e => {
-      this.errors.push(e)
-      console.log(this.errors)
-    })
-  }
+  props: ['items'],
+  // data: () => {
+  //   return {
+  //     items: [],
+  //     errors: [],
+  //   }
+  // },
+  // created() {
+  //   // 最新の5件の記事を取得
+  //   // axios.get('http://localhost:8888/wordpress/wp-json/wp/v2/media')
+  //   axios.get('http://localhost:8888/wordpress/wp-json/wp/v2/posts?_embed&per_page=5')
+  //   .then(response => {
+  //     // JSON responses are automatically parsed.
+  //     this.items = response.data;
+  //   })
+  //   .catch(e => {
+  //     this.errors.push(e)
+  //     console.log(this.errors)
+  //   })
+  // }
 }
 </script>
