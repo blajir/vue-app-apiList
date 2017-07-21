@@ -12,7 +12,7 @@
           <li>記事タイトル : <a :href="`${item.link}`" target="_blank">{{item.title.rendered}}</a></li>
           <li>スラッグ : <span class="badge badge-default">{{item.slug}}</span></li>
           <!-- <li v-html="item.excerpt.rendered"></li> -->
-           <!-- <li v-html="item.content.rendered"></li> -->
+          <!-- <li v-html="item.content.rendered"></li> -->
         </ul>
       </li>
     </ul>
