@@ -21,7 +21,7 @@ export default {
   },
   data() {
     return {
-      hoge: 'localhostで立ち上げたwordpressの記事情報を取得します。',
+      hoge: 'localhost:8888/wordpressで立ち上げたwordpressの記事情報を取得します。',
       dataTest: 'データ受け渡し成功!',
       items: [],
       errors: [],
