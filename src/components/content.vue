@@ -27,8 +27,8 @@ export default {
         this.wpArticle = response.data;
       })
       .catch(e => {
-        this.errors.push(e)
-        console.log(this.errors)
+        this.errors.push(e);
+        console.log(this.errors);
       })
   }
 }

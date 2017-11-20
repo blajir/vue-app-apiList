@@ -21,8 +21,8 @@ export default {
   },
   data() {
     return {
-      hoge: 'fooooooooooooooooooooo!',
-      dataTest: 'データ受け渡し成功!!!!',
+      hoge: 'localhostで立ち上げたwordpressの記事情報を取得します。',
+      dataTest: 'データ受け渡し成功!',
       items: [],
       errors: [],
     }
@@ -35,8 +35,8 @@ export default {
       this.items = response.data;
     })
     .catch(e => {
-      this.errors.push(e)
-      console.log(this.errors)
+      this.errors.push(e);
+      console.log(this.errors);
     })
   },
 }
