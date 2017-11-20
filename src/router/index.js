@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import ApiList from '@/components/apilist'
-import Hello from '@/components/Hello'
 import Content from '@/components/Content'
 
 Vue.use(Router)
