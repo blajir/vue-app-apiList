@@ -3,7 +3,7 @@
 > axiosを用いてAPIを取得するだけのプロジェクト
 
 ## 概要
-axiosというVue.jsのAjax通信ライブラリを利用し、非同期でJSONデータを取得する。
+axiosというVue.jsのAjax通信ライブラリを利用し、ローカルサーバーで立ち上げたWordPressのREST APIを非同期で取得する。
 node.jsのバージョンは8系のものを利用する。
 
 利用方法は下記の通り。
