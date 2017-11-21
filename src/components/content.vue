@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- <p v-html="wpArticle.content"></p> -->
-     <p v-html="wpArticle.content.rendered"></p>
+    <p v-html="wpArticle.content.rendered"></p>
   </div>
 </template>
 
