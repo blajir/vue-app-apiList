@@ -2,7 +2,7 @@
   <div id="apiList-wrapper">
     <h2>APIを取得</h2>
     <ul id="apiList" class="container">
-      <li v-for="item in items" class="row">
+      <li v-for="item in items" class="row" @click="goDetail(item.id)">
         <ul class="col">
           <li v-if="item._embedded['wp:featuredmedia']">
             <img :src="`${item._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url}`">
@@ -23,5 +23,10 @@
 export default {
   name: 'apiList',
   props: ['items'],
+  methods: {
+    goDetail: (newsId) => {
+      window.location.href = `/content/${newsId}`;
+    }
+  }
 }
 </script>
